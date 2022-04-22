@@ -185,7 +185,7 @@ function getRandomArbitrary(min, max) {
 }
 
 function generateBricks() {
-    var colors = ["white", "green", "yellow"];
+    var colors = ["white", "green", "yellow", "orange", "red", "blue", "purple", "pink"];
     var randomHeights = [heightBricks + 5, 40 + heightBricks];
 
     var numBricksPerRow = Math.floor((canvas.width - 20) / (widthBricks + 20));
