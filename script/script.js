@@ -283,17 +283,15 @@ function show() {
     if (lost) {
         canvasContext.font = "20px Arial";
         canvasContext.fillStyle = "red";
-        var text = "YOU LOST! (click to start a new game)";
-        var textWidth = canvasContext.measureText(text).width;
-        canvasContext.fillText(text, canvas.width / 2 - textWidth / 2, canvas.height / 2);
+        canvasContext.textAlign = "center";
+        canvasContext.fillText("YOU LOST! (click to start a new game)", canvas.width / 2, canvas.height / 2 + 50);
     }
 
     if (win) {
         canvasContext.font = "20px Arial";
         canvasContext.fillStyle = "green";
-        var text = "YOU WON! (click to start a new game)";
-        var textWidth = canvasContext.measureText(text).width;
-        canvasContext.fillText(text, canvas.width / 2 - textWidth / 2, canvas.height / 2);
+        canvasContext.textAlign = "center";
+        canvasContext.fillText("YOU WON! (click to start a new game)", canvas.width / 2, canvas.height / 2 + 50);
     }
 
 }
