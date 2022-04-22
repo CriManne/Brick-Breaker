@@ -35,15 +35,13 @@ class Paddle {
     }
 
     move(evt) {
-        if (true) {
-            var mouse = calculateMousePos(evt);
-            if (mouse.x < this.width / 2) {
-                this.pos.x = 0;
-            } else if (mouse.x > canvas.width - this.width / 2) {
-                this.pos.x = canvas.width - this.width;
-            } else {
-                this.pos.x = mouse.x - this.width / 2;
-            }
+        var mouse = calculateMousePos(evt);
+        if (mouse.x < this.width / 2) {
+            this.pos.x = 0;
+        } else if (mouse.x > canvas.width - this.width / 2) {
+            this.pos.x = canvas.width - this.width;
+        } else {
+            this.pos.x = mouse.x - this.width / 2;
         }
     }
 }
@@ -251,8 +249,15 @@ function show() {
     //DRAW BLACK RECT
     drawRect(0, 0, canvas.width, canvas.height, "black");
 
-    //DRAW BRICKS
+    //DISPLAY "Press anywhere to launch the ball"
+    if (ball == null) {
+        canvasContext.font = "30px Arial";
+        canvasContext.fillStyle = "white";
+        canvasContext.textAlign = "center";
+        canvasContext.fillText("Press anywhere to launch the ball", canvas.width / 2, canvas.height - 100);
+    }
 
+    //DRAW BRICKS    
     bricks.forEach(element => {
         drawRect(element.pos.x, element.pos.y, widthBricks, heightBricks, element.color);
     });
@@ -270,7 +275,8 @@ function show() {
     if (!lost && !win) {
         canvasContext.font = "20px Arial";
         canvasContext.fillStyle = "white";
-        canvasContext.fillText("Lives remaining: " + lives, 20, paddle.pos.y - 20);
+        canvasContext.textAlign = "left";
+        canvasContext.fillText("Lives remaining: " + lives, 5, paddle.pos.y - 20);
     }
 
 
